@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snake Sécurité routière</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">Jeu de validation des acquis</p>
+        <h1 id="title">Snake des risques routiers</h1>
+        <p class="intro">Mangez 10 blocs, répondez à 10 questions tirées aléatoirement parmi 30, puis découvrez votre score final.</p>
+      </div>
+      <div class="score-card" aria-live="polite">
+        <span>Score</span>
+        <strong id="score">0/10</strong>
+        <span id="resultLabel">8 bonnes réponses ou plus pour gagner</span>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <aside class="panel">
+        <h2>Règles</h2>
+        <ul>
+          <li>Déplacez le serpent avec les flèches ou ZQSD/WASD.</li>
+          <li>Chaque bloc mangé déclenche une question.</li>
+          <li>La réponse correcte vaut 1 point.</li>
+          <li>Une réponse « presque correcte » explique le piège.</li>
+        </ul>
+        <button id="startButton" type="button">Commencer</button>
+        <button id="restartButton" type="button" hidden>Rejouer</button>
+      </aside>
+
+      <div class="board-wrap">
+        <canvas id="game" width="480" height="480" aria-label="Plateau du jeu Snake"></canvas>
+        <p id="status" class="status" aria-live="polite">Appuyez sur Commencer pour jouer.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="questionDialog" aria-labelledby="questionTitle">
+    <form method="dialog" class="question-card">
+      <p class="question-count" id="questionCount"></p>
+      <h2 id="questionTitle"></h2>
+      <div id="answers" class="answers"></div>
+      <p id="feedback" class="feedback" aria-live="polite"></p>
+      <button id="continueButton" type="button" hidden>Continuer</button>
+    </form>
+  </dialog>
+
+  <dialog id="finalDialog" aria-labelledby="finalTitle">
+    <div class="question-card final-card">
+      <h2 id="finalTitle"></h2>
+      <p id="finalMessage"></p>
+      <button id="finalRestartButton" type="button">Rejouer</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
